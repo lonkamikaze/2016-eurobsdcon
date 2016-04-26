@@ -42,5 +42,5 @@ I also do weird stuff with AWK and shell scripts.
 - [Binary Package Management and Object Oriented Shell Scripting under FreeBSD](http://2010.eurobsdcon.org/presentations-schedule/paper-detail-view/?tx_ptconfmgm_controller_detail_paper[uid]=17&tx_ptconfmgm_controller_detail_paper[pid]=299)
 - [High Speed Karlsruhe](http://highspeed-karlsruhe.de/)
 - [hsk-libs: XC878 µC library code](http://sourceforge.net/p/hsk/libs/ci/default/tree/)
-- [Weird stuff about shell and AWK scripting](http://angryswarm.blogspot.com/)
+- [My blog, mostly weird stuff about shell and AWK scripting](http://angryswarm.blogspot.com/)
 

@@ -13,10 +13,14 @@ at the time of its conception.
 The paper/talk proposes three design changes, which were implemented
 in the boringly named `powerd++`, to address these flaws.
 
-The proposed talk and paper will present the three core differences
-between `powerd` and the proposed design and benchmarking `powerd++`
-vs. `powerd`. 
+The proposed talk and paper will present:
 
-- [Blog](http://angryswarm.blogspot.com/2016/04/powerd-better-cpu-clock-control-for.html)
-- [GitHub](https://github.com/lonkamikaze/powerdxx)
+- The load characteristics under which `powerd` fails
+- The three core design differences between `powerd` and `powerd++`
+- Benchmarking `powerd++` vs. `powerd`
+
+----
+
+- [`powerd++` in my blog](http://angryswarm.blogspot.com/2016/04/powerd-better-cpu-clock-control-for.html)
+- [`powerd++` on GitHub](https://github.com/lonkamikaze/powerdxx)
 

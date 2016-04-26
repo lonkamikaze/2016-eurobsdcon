@@ -1,5 +1,5 @@
-Proposing a Replacement for FreeBSD's `powerd`
-==============================================
+Proposing a Replacement for FreeBSD's powerd
+============================================
 
 Or, how I tamed the fan of my notebook
 --------------------------------------
@@ -17,6 +17,6 @@ The proposed talk and paper will present the three core differences
 between `powerd` and the proposed design and benchmarking `powerd++`
 vs. `powerd`. 
 
-- [Blog](http://angryswarm.blogspot.com/2016/04)
+- [Blog](http://angryswarm.blogspot.com/2016/04/powerd-better-cpu-clock-control-for.html)
 - [GitHub](https://github.com/lonkamikaze/powerdxx)
 

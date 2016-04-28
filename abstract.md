@@ -7,11 +7,11 @@ Or, how I tamed the fan of my notebook
 The `powerd` CPU frequency daemon provides userland P-State (power
 state) switching since 2005. Multi Core Processing has come a long
 way since 2005 and the increasing number of cores and pipelines in 
-modern CPUs have exposed flaws in its design that were not obvious
+modern CPUs have exposed flaws in powerd's design that were not obvious
 at the time of its conception.
 
-The paper/talk proposes three design changes, which were implemented
-in the boringly named `powerd++`, to address these flaws.
+The paper/talk proposes three design changes addressing these flaws.
+A daemon named `powerd++` implements this improved design.
 
 The proposed talk and paper will present:
 

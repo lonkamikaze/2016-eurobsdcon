@@ -12,26 +12,27 @@ Long Version
 ------------
 
 Between 2003 and 2006 I was a member of the TU Darmstadt's iCTF
-(international capture the flag) contest team (the Wizards of DoS),
-responsible for pattern matching (i.e. regex-fu), some light weight scripting
-languages (PHP *shudder*), SQL injections and automated exploit deployment,
+(international capture the flag) contest team. In the Wizards of DoS I was
+responsible for pattern matching (i.e. regex-fu), some scripting
+languages (PHP *shudder*), SQL injections, automated exploit deployment,
 flag collection and delivery. In 2006 I went to Karlsruhe shifting my focus
 from hacking to studies.
 
 In 2009 I started working on a framework for object oriented shell scripts
-at the GPN8 (GulaschProgrammierNacht8) in Karlsruhe. I used that to build a
-binary package manager for FreeBSD and went to the EuroBSDCon 2010 with a
-talk and a paper about it.
+at the GPN8 (GulaschProgrammierNacht8) in Karlsruhe. This framework became
+the foundation of a binary package manager for FreeBSD and was presented
+at the EuroBSDCon 2010.
 
 During my master studies I picked up the habit of building race cars,
-with our FSAE team High Speed Karlsruhe, where I was the lead of electronics
-development for 2 years and 3 race cars. Dabbling into circuit board design
-and programming 8051 style µCs. 10k+ lines of our library code are available
-under the beer-ware license.
+with our FSAE team High Speed Karlsruhe. There I was the head of electronics
+development for 2 years, resulting in 3 race cars.
+During my tenure I dabbled in circuit board design and programming
+8051 style µCs. 10k+ lines of our library code are available under
+the beer-ware license.
 
-Now, surrounded by mechanical engineers, I work for the Institute of Materials
-and Processes of the Karlsruhe University of Applied Sciences, where among
-other things I write simulations in C++.
+Currently I work for the Institute of Materials and Processes at the
+Karlsruhe University of Applied Sciences, where among other things
+I write machining simulators in C++.
 
 I also do weird stuff with AWK and shell scripts.
 

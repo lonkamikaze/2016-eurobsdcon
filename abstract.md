@@ -15,7 +15,7 @@ A daemon named `powerd++` implements this improved design.
 
 The proposed talk and paper will present:
 
-- The load characteristics under which `powerd` fails
+- Challenging load characteristics
 - The three core design differences between `powerd` and `powerd++`
 - Benchmarking `powerd++` vs. `powerd`
 

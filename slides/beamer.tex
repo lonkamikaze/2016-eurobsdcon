@@ -1,0 +1,44 @@
+\documentclass{beamer}
+\usetheme{Szeged}
+\usecolortheme{beaver}
+
+\usepackage{fontspec}              % Support non-latin characters
+\setmonofont{Source Code Pro}%     % Select Source Code Pro for listings
+            [Scale=MatchLowercase, % Adjust glyph size
+             BoldFont={* Semibold}]% The Bold face is too bold
+
+\usepackage{listings}              % Code blocks
+\lstset{language={[ISO]C++},       % Default programming language
+        breaklines=true,           % Break long lines in listings
+        showstringspaces=false,    % Do not use visible spaces in strings
+        morekeywords={constexpr,   % C++11 keywords
+            decltype,static_assert}}
+
+\usepackage{tikz}                  % TikZ drawings
+\usepackage{microtype}             % Enable black magic
+
+\title{Proposing a Replacement for FreeBSD's powerd (Preview)}
+\subtitle{Or, how I tamed the fan of my notebook}
+
+\author[D. Fandrey]{Dominic Fandrey}
+\institute[VLI]{Von Leitner-Institut für verteiltes Echtzeit-Java}
+\date[GPN 2016]{GPN16, May 2016}
+\logo{\includegraphics[width=1.5cm]{logo}}
+
+\begin{document}
+
+\section{Introduction}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\begin{frame}{Contents}
+\tableofcontents
+\end{frame}
+
+\section{What?}
+\section{Why?}
+\section{How?}
+
+\end{document}

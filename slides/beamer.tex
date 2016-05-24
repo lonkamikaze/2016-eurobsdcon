@@ -2,6 +2,8 @@
 \usetheme{Szeged}
 \usecolortheme{beaver}
 
+\usepackage{hyperref}              % Support clickable references
+
 \usepackage{fontspec}              % Support non-latin characters
 \setmonofont{Source Code Pro}%     % Select Source Code Pro for listings
             [Scale=MatchLowercase, % Adjust glyph size
@@ -29,8 +31,6 @@
 
 \begin{document}
 
-\section{Introduction}
-
 \begin{frame}[plain]
 \titlepage
 \end{frame}
@@ -39,36 +39,33 @@
 \tableofcontents
 \end{frame}
 
+\section{Who?}
+
+\begin{frame}{kamikaze a.k.a. Dominic Fandrey}
+\begin{itemize}
+\item<1-> \href{mailto:kami@freebsd.org}{Dominic Fandrey <kami@freebsd.org>}
+\item<1-> M.Sc. (Computer Science)
+\item<2-> Located in Europe/Karlsruhe
+\item<3-> Working as a researcher at an undisclosed polytechnic university
+\item<3-> \begin{tikzpicture}[node distance=3cm]
+\node (mugshot) {\includegraphics[height=3.0cm]{../images/mugshot}};
+\onslide<4->{
+\node (hair)[right of=mugshot] {\includegraphics[height=3.0cm]{../images/interests_hair}};}
+\onslide<5->{
+\node (uni)[right of=hair] {\includegraphics[height=3.0cm]{../images/interests_uni}};}
+\onslide<6->{
+\node (freebsd)[right of=uni] {\includegraphics[height=3.0cm]{freebsd-logo}};}
+\end{tikzpicture}
+\end{itemize}
+\end{frame}
+
 \section{What?}
 
 \begin{frame}{CPU p-state control}
 \centering
 \begin{tikzpicture}
-\begin{axis}[
-	xtick={5,10,15,20,25,30,35},
-	x tick label style={rotate=45,anchor=east},
-	ytick={0,25,50,75,100},
-	ymin=0,ymax=200,
-	scaled ticks=false,
-	xlabel={t (s)},
-	legend style={font=\tiny},
-	legend pos=north west
-]
-\addplot[red,mark=*,mark size=.5pt] table[x=t,y=load] {../data/demo-powerd++};
-\legend{load (\%)}
-\end{axis}
-\begin{axis}[
-	xtick={100},
-	ymin=-1400, ymax=3000,
-	ytick={2400,2000,1600,1200,800},
-	yticklabel pos=right,
-	legend style={font=\tiny}
-]
-\addplot[jump mark right,blue]  table[x=t,y=freq] {../data/demo-powerd++};
-\addplot+[red!50!blue,mark=*,mark options={fill=red!50!blue},mark size=.5pt]
-        table[x=t,y=want] {../data/demo-powerd++};
-\legend{cpu0 (MHz),wanted (MHz)}
-\end{axis}
+\input{../drawings/powerd++-demo-load}
+\onslide<2->{\input{../drawings/powerd++-demo-freq}}
 \end{tikzpicture}
 \end{frame}
 

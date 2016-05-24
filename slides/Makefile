@@ -1,8 +1,10 @@
 CLEANUP=	aux log nav out snm toc
 NAME=		beamer
-MEDIA=		logo arch_powerd arch_powerd++
+MEDIA=		logo arch_powerd arch_powerd++ freebsd-logo
+DRAWINGS=	../drawings/*.tex
+IMAGES=		../images/*
 
-${NAME}.pdf: ${NAME}.tex ${MEDIA:C/$/.pdf/}
+${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES}
 	xelatex ${NAME}
 	xelatex ${NAME}
 

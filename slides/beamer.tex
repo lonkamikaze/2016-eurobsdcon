@@ -73,15 +73,15 @@
 
 \begin{frame}{Why control p-state?}
 \begin{columns}[onlytextwidth]
-\begin{column}{0.5\textwidth}
+\begin{column}{0.4\textwidth}
 \begin{itemize}
-\item<2-> Fan noise
-\item<3-> Battery/Energy conservation
-\item<4-> Hardware lifetime
+\item<1-> Fan noise
+\item<2-> Battery/Energy conservation
+\item<3-> Hardware lifetime
 \end{itemize}
 \end{column}
-\begin{column}{0.5\textwidth}
-\begin{tikzpicture}[scale=.5]
+\begin{column}{0.6\textwidth}
+\begin{tikzpicture}[scale=.6]
 \input{../drawings/powerd++-demo-load}
 \input{../drawings/powerd++-demo-freq}
 \end{tikzpicture}
@@ -99,21 +99,63 @@
 
 \begin{frame}{Why replace powerd?}
 \begin{columns}[onlytextwidth]
-\begin{column}{0.5\textwidth}
+\begin{column}{0.4\textwidth}
 \begin{itemize}
-\item<2-> Broken load estimation
-\item<3-> Aggressive speeding
-\item<4-> Reluctant braking
-\item<5-> Excessive fan noise
+\item<1-> Broken load estimation
+\item<2-> Aggressive speeding
+\item<3-> Reluctant braking
+\item<4-> Excessive fan noise
 \end{itemize}
 \end{column}
-\begin{column}{0.5\textwidth}
-\begin{tikzpicture}[scale=.5]
+\begin{column}{0.6\textwidth}
+\begin{tikzpicture}[scale=.6]
 \input{../drawings/powerd-demo-load}
 \input{../drawings/powerd-demo-freq}
 \end{tikzpicture}
 \end{column}
 \end{columns}
+\end{frame}
+
+\section{Challenges!}
+
+\begin{frame}{Measuring loads}
+\centering
+\begin{tikzpicture}
+\input{../drawings/per-cpu-loads}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Measuring loads}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item<1-> Load is noisy
+\item<2-> Load shifts
+\item<3-> Load saturates
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+\begin{tikzpicture}[scale=.6]
+\input{../drawings/per-cpu-loads}
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Control algorithm}
+\begin{itemize}
+\item Contradicting goals: \begin{itemize}
+      \item<2-> System should be responsive
+      \item<3-> System should be efficient
+      \end{itemize}
+\item<4-> P-States: \begin{itemize}
+      \item<5-> P-States lie
+      \item<6-> Extremely low nonsense p-states
+      \end{itemize}
+\item<7-> Make the right compromises
+\item<8-> Make it tunable
+\item<9-> Set sane defaults
+\end{itemize}
 \end{frame}
 
 \section{How?}

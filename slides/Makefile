@@ -3,8 +3,9 @@ NAME=		beamer
 MEDIA=		logo arch_powerd arch_powerd++ freebsd-logo
 DRAWINGS=	../drawings/*.tex
 IMAGES=		../images/*
+DATA=		../data/*
 
-${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES}
+${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES} ${DATA}
 	xelatex ${NAME}
 	xelatex ${NAME}
 

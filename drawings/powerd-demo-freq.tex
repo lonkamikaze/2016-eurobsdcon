@@ -1,0 +1,31 @@
+\begin{axis}[
+	xmin=-.25,xmax=32.75,
+	xtick={100},
+	ymin=-1600, ymax=3200,
+	ytick={2400,2000,1600,1200,800},
+	yticklabel pos=right,
+	ylabel={MHz},
+	ylabel near ticks,
+	legend style={font=\tiny},
+	legend cell align=left
+]
+\addplot[white!80!blue,domain=0.5:32.25] {768};
+\addplot[white!80!blue,domain=0.5:32.25] {800};
+\addplot[white!80!blue,domain=0.5:32.25] {900};
+\addplot[white!80!blue,domain=0.5:32.25] {1100};
+\addplot[white!80!blue,domain=0.5:32.25] {1200};
+\addplot[white!80!blue,domain=0.5:32.25] {1300};
+\addplot[white!80!blue,domain=0.5:32.25] {1400};
+\addplot[white!80!blue,domain=0.5:32.25] {1500};
+\addplot[white!80!blue,domain=0.5:32.25] {1700};
+\addplot[white!80!blue,domain=0.5:32.25] {1800};
+\addplot[white!80!blue,domain=0.5:32.25] {1900};
+\addplot[white!80!blue,domain=0.5:32.25] {2000};
+\addplot[white!80!blue,domain=0.5:32.25] {2200};
+\addplot[white!80!blue,domain=0.5:32.25] {2300};
+\addplot[white!80!blue,domain=0.5:32.25] {2400};
+\addplot[jump mark right,blue]  table[x=t,y=freq] {../data/demo-powerd};
+\addplot[red!50!blue,mark=*,mark options={fill=red!50!blue},mark size=.5pt]
+        table[x=t,y=want] {../data/demo-powerd};
+\legend{steppings,,,,,,,,,,,,,,,cpu0 clock,wanted}
+\end{axis}

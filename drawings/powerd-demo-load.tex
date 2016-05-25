@@ -1,0 +1,19 @@
+\begin{axis}[
+	title=powerd adaptive,
+	xmin=-.25,xmax=32.75,
+	xtick={5,10,15,20,25,30},
+	x tick label style={rotate=45,anchor=east},
+	ytick={0,25,50,75,100},
+	ymin=0,ymax=200,
+	scaled ticks=false,
+	xlabel={seconds},
+	ylabel={\%},
+	legend style={font=\tiny},
+	legend pos=north west,
+	legend cell align=left
+]
+\addplot[orange] table[x=t,y=hyst_low] {../data/demo-powerd};
+\addplot[orange] table[x=t,y=hyst_hi] {../data/demo-powerd};
+\addplot[red,mark=*,mark size=.5pt] table[x=t,y=load] {../data/demo-powerd};
+\legend{,,load}
+\end{axis}

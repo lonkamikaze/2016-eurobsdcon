@@ -36,7 +36,7 @@
 \end{frame}
 
 \begin{frame}{Contents}
-\tableofcontents
+\tableofcontents[pausesections]
 \end{frame}
 
 \section{Who?}
@@ -143,6 +143,8 @@
 \end{frame}
 
 \begin{frame}{Control algorithm}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.6\textwidth}
 \begin{itemize}
 \item Contradicting goals: \begin{itemize}
       \item<2-> System should be responsive
@@ -151,11 +153,20 @@
 \item<4-> P-States: \begin{itemize}
       \item<5-> P-States lie
       \item<6-> Extremely low nonsense p-states
+      \item<7-> P-State switching has a cost
       \end{itemize}
-\item<7-> Make the right compromises
-\item<8-> Make it tunable
-\item<9-> Set sane defaults
 \end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item<8-> Conclusions: \begin{itemize}
+      \item<9-> Make the right compromises
+      \item<10-> Make it tunable
+      \item<11-> Set sane defaults
+      \end{itemize}
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \section{How?}

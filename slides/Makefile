@@ -1,9 +1,13 @@
-CLEANUP=	aux log nav out snm toc
+TITLE=		2016 GPN16 Replacing powerd
+CLEANUP=	aux log nav out snm toc pdf
 NAME=		beamer
 MEDIA=		logo arch_powerd arch_powerd++ freebsd-logo
 DRAWINGS=	../drawings/*.tex
 IMAGES=		../images/*
 DATA=		../data/*
+
+${TITLE:Q}.pdf: ${NAME}.pdf
+	cp $> $@
 
 ${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES} ${DATA}
 	xelatex ${NAME}

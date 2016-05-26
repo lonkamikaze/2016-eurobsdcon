@@ -9,21 +9,10 @@
 	legend style={font=\tiny},
 	legend cell align=left
 ]
-\addplot[white!80!blue,domain=0.5:37.5] {768};
-\addplot[white!80!blue,domain=0.5:37.5] {800};
-\addplot[white!80!blue,domain=0.5:37.5] {900};
-\addplot[white!80!blue,domain=0.5:37.5] {1100};
-\addplot[white!80!blue,domain=0.5:37.5] {1200};
-\addplot[white!80!blue,domain=0.5:37.5] {1300};
-\addplot[white!80!blue,domain=0.5:37.5] {1400};
-\addplot[white!80!blue,domain=0.5:37.5] {1500};
-\addplot[white!80!blue,domain=0.5:37.5] {1700};
-\addplot[white!80!blue,domain=0.5:37.5] {1800};
-\addplot[white!80!blue,domain=0.5:37.5] {1900};
-\addplot[white!80!blue,domain=0.5:37.5] {2000};
-\addplot[white!80!blue,domain=0.5:37.5] {2200};
-\addplot[white!80!blue,domain=0.5:37.5] {2300};
-\addplot[white!80!blue,domain=0.5:37.5] {2400};
+
+\foreach \stepping in {2401,2400,2300,2200,2000,1900,1800,1700,1500,1400,1300,1200,1100,900,800,768}
+	\addplot[white!80!blue,domain=0.5:37.5] {\stepping};
+
 \addplot[jump mark right,blue]  table[x=t,y=freq] {../data/demo-powerd++};
 \addplot[red!50!blue,mark=*,mark options={fill=red!50!blue},mark size=.5pt]
         table[x=t,y=want] {../data/demo-powerd++};

@@ -11,9 +11,10 @@
 	legend pos=north west,
 	legend cell align=left
 ]
-\addplot+[mark size=.5pt] table[x=t,y=cpu0] {../data/per-cpu-loads};
-\addplot+[mark size=.5pt] table[x=t,y=cpu1] {../data/per-cpu-loads};
-\addplot+[mark size=.5pt] table[x=t,y=cpu2] {../data/per-cpu-loads};
-\addplot+[mark size=.5pt] table[x=t,y=cpu3] {../data/per-cpu-loads};
+\tikzstyle{load}=[mark size=.5pt]
+\addplot+[load] table[x=t,y=cpu0] {../data/per-cpu-loads};
+\addplot+[load] table[x=t,y=cpu1] {../data/per-cpu-loads};
+\addplot+[load] table[x=t,y=cpu2] {../data/per-cpu-loads};
+\addplot+[load] table[x=t,y=cpu3] {../data/per-cpu-loads};
 \legend{cpu0,cpu1,cpu2,cpu3}
 \end{axis}

@@ -1,0 +1,25 @@
+\begin{axis}[
+	title=summary load (powerd),
+	xmin=-.25,xmax=30.5,
+	xtick={5,10,15,20,25,30},
+	x tick label style={rotate=45,anchor=east},
+	ytick={0,25,50,75,100},
+	ymin=0,ymax=100,
+	scaled ticks=false,
+	xlabel={seconds},
+	ylabel={\%},
+	legend style={font=\tiny},
+	legend pos=north west,
+	legend cell align=left
+]
+\tikzstyle{load}=[mark size=.5pt]
+\tikzstyle{coreload}=[load,white!50!blue]
+\addplot+[coreload] table[x=t,y=cpu0] {../data/per-cpu-loads};
+\addplot+[coreload] table[x=t,y=cpu1] {../data/per-cpu-loads};
+\addplot+[coreload] table[x=t,y=cpu2] {../data/per-cpu-loads};
+\addplot+[coreload] table[x=t,y=cpu3] {../data/per-cpu-loads};
+\addplot+[load,red] table[x=t,y expr=\thisrow{cpu0}+\thisrow{cpu1}+
+                                     \thisrow{cpu2}+\thisrow{cpu3}]
+                         {../data/per-cpu-loads};
+\legend{cpus,,,,sum}
+\end{axis}

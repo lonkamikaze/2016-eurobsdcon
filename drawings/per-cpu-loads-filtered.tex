@@ -1,0 +1,21 @@
+\begin{axis}[
+	title=filtered loads (powerd++),
+	xmin=-.25,xmax=30.5,
+	xtick={5,10,15,20,25,30},
+	x tick label style={rotate=45,anchor=east},
+	ytick={0,25,50,75,100},
+	ymin=0,ymax=100,
+	scaled ticks=false,
+	xlabel={seconds},
+	ylabel={\%},
+	legend style={font=\tiny},
+	legend pos=north west,
+	legend cell align=left
+]
+\tikzstyle{load}=[mark size=.5pt]
+\addplot+[load] table[x=t,y=cpu0] {../data/per-cpu-loads-filtered};
+\addplot+[load] table[x=t,y=cpu1] {../data/per-cpu-loads-filtered};
+\addplot+[load] table[x=t,y=cpu2] {../data/per-cpu-loads-filtered};
+\addplot+[load] table[x=t,y=cpu3] {../data/per-cpu-loads-filtered};
+\legend{cpu0 filtered,cpu1 filtered,cpu2 filtered,cpu3 filtered}
+\end{axis}

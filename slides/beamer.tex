@@ -186,14 +186,24 @@
 
 \section{How?}
 
-\begin{frame}{powerd}
+\begin{frame}{Control algorithm (powerd)}
 \centering
 \includegraphics[height=6.5cm]{arch_powerd}
 \end{frame}
 
-\begin{frame}{powerd++}
+\begin{frame}{Control algorithm (powerd++)}
 \centering
 \includegraphics[height=6.5cm]{arch_powerd++}
+\end{frame}
+
+\begin{frame}{Dealing with signal noise}
+\begin{tikzpicture}
+\onslide<1>{\input{../drawings/per-cpu-loads}}
+\onslide<2>{\input{../drawings/per-cpu-loads-powerd}}
+\onslide<3>{\input{../drawings/per-cpu-loads-powerd-unlimited}}
+\onslide<4>{\input{../drawings/per-cpu-loads-filtered}}
+\onslide<5>{\input{../drawings/per-cpu-loads-powerd++}}
+\end{tikzpicture}
 \end{frame}
 
 \end{document}

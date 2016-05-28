@@ -1,4 +1,4 @@
-\documentclass[aspectratio=1610]{beamer}
+\documentclass[aspectratio=169]{beamer}
 \beamertemplatenavigationsymbolsempty
 
 \usetheme{Szeged}
@@ -163,7 +163,7 @@
 \begin{itemize}
 \item Contradicting goals: \begin{itemize}
       \item<2-> System should be responsive
-      \item<3-> System should be efficient
+      \item<3-> System should be energy efficient
       \end{itemize}
 \item<4-> P-States: \begin{itemize}
       \item<5-> P-States lie
@@ -186,6 +186,37 @@
 
 \section{How?}
 
+\begin{frame}{Summary}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.45\textwidth}
+\centering
+powerd++
+\begin{itemize}
+\item<2-> Any granularity p-state changes
+\item<4-> Maximum load
+\item<6-> Aim for a load target
+\item<8-> Filter load to ignore short spikes
+\item<10-> Explicit CLA syntax like --max 1.2ghz
+\end{itemize}
+\end{column}
+\begin{column}{0.1\textwidth}
+\centering
+versus
+\end{column}
+\begin{column}{0.45\textwidth}
+\centering
+powerd
+\begin{itemize}
+\item<3-> Global p-state changes only
+\item<5-> Sum of loads
+\item<7-> Hysteresis
+\item<9-> Aggressively tuned for responsiveness
+\item<11-> Hard coded units -M 1200
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Control algorithm (powerd)}
 \centering
 \includegraphics[height=6.5cm]{arch_powerd}
@@ -204,6 +235,50 @@
 \onslide<4>{\input{../drawings/per-cpu-loads-filtered}}
 \onslide<5>{\input{../drawings/per-cpu-loads-powerd++}}
 \end{tikzpicture}
+\end{frame}
+
+\section{Conclusions!}
+
+\begin{frame}{Solved problems}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<1-> Load signal noise
+\item<3-> Low multi core loads
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<2-> Lower sample rate, gliding average
+\item<4-> Without breaking single core loads
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Unsolved problems}
+\begin{columns}[onlytextwidth]
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<1-> High frequency core hopping
+\item<3-> P-States that lie reduce prediction accuracy
+\item<5-> kern\_clock.c only supports global frequency changes
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<2-> This is rare
+\item<4-> Ignoring this works well enough
+\item<6-> This is fixable, but may break scheduling
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\centering
+\textbackslash(-)/\\
+Praise the sun!
 \end{frame}
 
 \end{document}

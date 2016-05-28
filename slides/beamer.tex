@@ -12,11 +12,9 @@
              BoldFont={* Semibold}]% The Bold face is too bold
 
 \usepackage{listings}              % Code blocks
-\lstset{language={[ISO]C++},       % Default programming language
-        breaklines=true,           % Break long lines in listings
-        showstringspaces=false,    % Do not use visible spaces in strings
-        morekeywords={constexpr,   % C++11 keywords
-            decltype,static_assert}}
+\lstset{basicstyle=\ttfamily\small}% Use a small monospace font
+
+\newcommand{\PDPP}{powerd$^{_{_{++}}}$}
 
 \usepackage{tikz}                  % TikZ drawings
 \usepackage{pgfplots}
@@ -190,13 +188,13 @@
 \begin{columns}[onlytextwidth]
 \begin{column}{0.45\textwidth}
 \centering
-powerd++
+\PDPP
 \begin{itemize}
 \item<2-> Any granularity p-state changes
 \item<4-> Maximum load
 \item<6-> Aim for a load target
 \item<8-> Filter load to ignore short spikes
-\item<10-> Explicit CLA syntax like --max 1.2ghz
+\item<10-> Explicit CLA syntax like \lstinline{--max 1.2ghz}
 \end{itemize}
 \end{column}
 \begin{column}{0.1\textwidth}
@@ -211,7 +209,7 @@ powerd
 \item<5-> Sum of loads
 \item<7-> Hysteresis
 \item<9-> Aggressively tuned for responsiveness
-\item<11-> Hard coded units -M 1200
+\item<11-> Hard coded units \lstinline{-M 1200}
 \end{itemize}
 \end{column}
 \end{columns}
@@ -222,7 +220,7 @@ powerd
 \includegraphics[height=6.5cm]{arch_powerd}
 \end{frame}
 
-\begin{frame}{Control algorithm (powerd++)}
+\begin{frame}{Control algorithm (\PDPP)}
 \centering
 \includegraphics[height=6.5cm]{arch_powerd++}
 \end{frame}
@@ -261,7 +259,7 @@ powerd
 \begin{column}{0.5\textwidth}
 \begin{itemize}
 \item<1-> High frequency core hopping
-\item<3-> P-States that lie reduce prediction accuracy
+\item<3-> P-States that lie reduce accuracy
 \item<5-> kern\_clock.c only supports global frequency changes
 \end{itemize}
 \end{column}
@@ -278,7 +276,9 @@ powerd
 \begin{frame}
 \centering
 \textbackslash(-)/\\
-Praise the sun!
+Praise the sun!\\
+\vspace{1cm}
+\url{https://github.com/lonkamikaze/powerdxx}
 \end{frame}
 
 \end{document}

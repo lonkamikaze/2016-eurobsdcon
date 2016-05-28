@@ -10,8 +10,8 @@ ${TITLE:Q}.pdf: ${NAME}.pdf
 	cp $> $@
 
 ${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES} ${DATA}
-	xelatex ${NAME}
-	xelatex ${NAME}
+	xelatex ${NAME} <&-
+	xelatex ${NAME} <&-
 
 clean:
 	rm -f ${CLEANUP:C/^/${NAME}./} ${MEDIA:C/$/.pdf/}

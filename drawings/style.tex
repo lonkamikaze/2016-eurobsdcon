@@ -1,0 +1,26 @@
+\pgfplotsset{%
+	axis common/.style={%
+		xmin=0,xmax=30,
+		xtick={5,10,...,25},
+		x tick label style={rotate=45,anchor=east},
+		scaled ticks=false,
+		xlabel={seconds},
+		legend style={font=\tiny}},
+	axis load/.style={%
+		axis common,
+		ymin=0,ymax=1,
+		ytick={0,.25,...,1},
+		ylabel={load},
+		legend pos=north west,
+		legend cell align=left},
+	axis freq/.style={%
+		axis common,
+		ymin=700,ymax=2500,
+		ytick={800,900,1100,1200,1300,1400,1500,1700,1800,1900,2000,2200,2300,2400},
+		ylabel={MHz},
+		legend pos=north east,
+		legend cell align=left},
+	load/.style={mark size=1pt},
+	freq/.style={const plot mark mid,no markers}
+}
+

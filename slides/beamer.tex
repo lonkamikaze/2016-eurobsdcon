@@ -17,7 +17,12 @@
 
 \usepackage{tikz}                  % TikZ drawings
 \usepackage{pgfplots}
-\pgfplotsset{width=12cm,height=6.5cm}
+\usepackage{pgfplotstable}
+\pgfplotsset{width=13.5cm,height=7.5cm}
+\usepgfplotslibrary{external}
+\tikzexternalize
+\input{../drawings/style.tex}
+
 \usepackage{microtype}             % Enable black magic
 
 \title{Proposing a Replacement for FreeBSD's powerd}

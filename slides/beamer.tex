@@ -50,27 +50,57 @@
 \tableofcontents
 \end{frame}
 
-\section{Who?}
+\section{A long long time ago (February)}
 
-\begin{frame}{kamikaze a.k.a. Dominic Fandrey}
-\begin{itemize}
-\item<1-> \href{mailto:kami@freebsd.org}{Dominic Fandrey <kami@freebsd.org>}
-\item<1-> M.Sc. (Computer Science)
-\item<2-> Located in Europe/Karlsruhe
-\item<3-> Working as a researcher at an undisclosed polytechnic university
-\item<3-> \begin{tikzpicture}[node distance=3cm]
-\node (mugshot) {\includegraphics[height=3.0cm]{../images/mugshot}};
-\onslide<4->{
-\node (hair)[right of=mugshot] {\includegraphics[height=3.0cm]{../images/interests_hair}};}
-\onslide<5->{
-\node (uni)[right of=hair] {\includegraphics[height=3.0cm]{../images/interests_uni}};}
-\onslide<6->{
-\node (freebsd)[right of=uni] {\includegraphics[height=3.0cm]{freebsd-logo}};}
-\end{tikzpicture}
-\end{itemize}
+\begin{frame}{A long long time ago (February)}
 \end{frame}
 
-\section{What?}
+\begin{frame}{browser/email load according to \emph{top}}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu0.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu1.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu2.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu3.load] {../data/browser-email-80-0-80.csv};
+\legend{cpu0,cpu1,cpu2,cpu3}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{browser/email clock frequency running \emph{powerd}}
+\begin{tikzpicture}
+\begin{axis}[axis freq]
+\addplot+[freq] table[x={time[s]},y={max(freqs)[MHz]}] {../data/browser-email-powerd-hadp.csv};
+\legend{dev.cpu.0.freq}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{browser/email load according to \emph{powerd}}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=sum(loads)] {../data/browser-email-10-0-10.csv};
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{browser/email clock frequency running \emph{powerd adaptive}}
+\begin{tikzpicture}
+\begin{axis}[axis freq]
+\addplot+[freq] table[x={time[s]},y={max(freqs)[MHz]}] {../data/browser-email-powerd-adp.csv};
+\legend{dev.cpu.0.freq}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{browser/email clock frequency \emph{expectation}}
+\begin{tikzpicture}
+\begin{axis}[axis freq]
+\addplot+[freq] table[x={time[s]},y={max(freqs)[MHz]}] {../data/browser-email-powerd++-hadp.csv};
+\legend{dev.cpu.0.freq}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
 
 \begin{frame}{Definitions}
 \begin{itemize}

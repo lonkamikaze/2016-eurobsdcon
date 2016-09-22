@@ -1,5 +1,5 @@
-TITLE=		2016 GPN16 Replacing powerd
-CLEANUP=	aux log nav out snm toc pdf
+TITLE=		2016 EuroBSDcon Replacing powerd
+CLEANUP=	.aux .auxlock .log .nav .out .snm .toc .pdf -figure[0-9]*
 NAME=		beamer
 MEDIA=		logo arch_powerd arch_powerd++ freebsd-logo
 DRAWINGS=	../drawings/*.tex
@@ -10,11 +10,11 @@ ${TITLE:Q}.pdf: ${NAME}.pdf
 	cp $> $@
 
 ${NAME}.pdf: ${NAME}.tex ${DRAWINGS} ${MEDIA:C/$/.pdf/} ${IMAGES} ${DATA}
-	xelatex ${NAME} <&-
-	xelatex ${NAME} <&-
+	xelatex -shell-escape ${NAME} <&-
+	xelatex -shell-escape ${NAME} <&-
 
 clean:
-	rm -f ${CLEANUP:C/^/${NAME}./} ${MEDIA:C/$/.pdf/}
+	rm -f ${CLEANUP:C/^/${NAME}/} ${MEDIA:C/$/.pdf/}
 
 .for media in ${MEDIA}
 ${media}.pdf: ../media/${media}.svg

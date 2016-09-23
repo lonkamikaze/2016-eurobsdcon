@@ -146,7 +146,7 @@
 \begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
 \begin{tikzpicture}
 \begin{axis}[axis load]
-\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
 \legend{cpu.0}
 \end{axis}
 \end{tikzpicture}
@@ -155,8 +155,8 @@
 \begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
 \begin{tikzpicture}
 \begin{axis}[axis load]
-\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
-\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
 \legend{cpu.0 symmetric,cpu.0 past}
 \end{axis}
 \end{tikzpicture}
@@ -165,8 +165,8 @@
 \begin{frame}{load sampling vs. filtering comparison}
 \begin{tikzpicture}
 \begin{axis}[axis load]
-\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
-\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
 \addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-10-0-10.csv};
 \legend{cpu.0 symmetric,cpu.0 past,$250 ms$ sample}
 \end{axis}

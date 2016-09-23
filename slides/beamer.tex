@@ -173,6 +173,89 @@
 \end{tikzpicture}
 \end{frame}
 
+\section{Load Aggregation}
+
+\begin{frame}{Load Aggregation}
+\end{frame}
+
+\begin{frame}{challenge, find the right frequency for \emph{all} cores}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.1.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.2.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.3.recload] {../data/xetex-80-0-1.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{powerd.c}
+\begin{lstlisting}
+/*
+ * This function returns summary load of all CPUs.  It was made so
+ * intentionally to not reduce performance in scenarios when several
+ * threads are processing requests as a pipeline -- running one at
+ * a time on different CPUs and waiting for each other.
+ */
+static int
+read_usage_times(int *load)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{using the sum}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=2.5]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.1.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.2.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.3.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,thick,no markers] table[x={time[s]},y=sum(recloads)] {../data/xetex-80-0-1.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3,sum(loads)}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd flavoured}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=2.5]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/xetex-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y=cpu.1.recload] {../data/xetex-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y=cpu.2.recload] {../data/xetex-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y=cpu.3.recload] {../data/xetex-10-0-10.csv};
+\addplot+[load,thick] table[x={time[s]},y=sum(recloads)] {../data/xetex-10-0-10.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3,sum(loads)}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{proposal}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.1.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.2.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.3.recload] {../data/xetex-80-0-1.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3,max(loads)}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{use the max}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.1.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.2.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.3.recload] {../data/xetex-80-0-1.csv};
+\addplot+[load,thick,no markers] table[x={time[s]},y=max(recloads)] {../data/xetex-80-0-1.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3,max(loads)}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
 \begin{frame}{Definitions}
 \begin{itemize}
 \item Load: \begin{itemize}

@@ -58,11 +58,11 @@
 \begin{frame}{browser/email load according to \emph{top}}
 \begin{tikzpicture}
 \begin{axis}[axis load]
-\addplot+[load] table[x={time[s]},y=cpu0.load] {../data/browser-email-80-0-80.csv};
-\addplot+[load] table[x={time[s]},y=cpu1.load] {../data/browser-email-80-0-80.csv};
-\addplot+[load] table[x={time[s]},y=cpu2.load] {../data/browser-email-80-0-80.csv};
-\addplot+[load] table[x={time[s]},y=cpu3.load] {../data/browser-email-80-0-80.csv};
-\legend{cpu0,cpu1,cpu2,cpu3}
+\addplot+[load] table[x={time[s]},y=cpu.0.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu.1.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu.2.load] {../data/browser-email-80-0-80.csv};
+\addplot+[load] table[x={time[s]},y=cpu.3.load] {../data/browser-email-80-0-80.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3}
 \end{axis}
 \end{tikzpicture}
 \end{frame}

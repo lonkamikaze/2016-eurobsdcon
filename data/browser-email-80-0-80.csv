@@ -1,4 +1,4 @@
-time[s] cpu0.freq[Mhz] cpu0.recload cpu0.load cpu1.freq[Mhz] cpu1.recload cpu1.load cpu2.freq[Mhz] cpu2.recload cpu2.load cpu3.freq[Mhz] cpu3.recload cpu3.load max(freqs)[MHz] sum(recloads) max(recloads) sum(loads) max(loads)
+time[s] cpu.0.freq[Mhz] cpu.0.recload cpu.0.load cpu.1.freq[Mhz] cpu.1.recload cpu.1.load cpu.2.freq[Mhz] cpu.2.recload cpu.2.load cpu.3.freq[Mhz] cpu.3.recload cpu.3.load max(freqs)[MHz] sum(recloads) max(recloads) sum(loads) max(loads)
 2.000 2401 0.105 0.084 2401 0.084 0.074 2401 0.044 0.035 2401 0.049 0.036 2401 0.282 0.207 0.229 0.169
 4.000 2401 0.118 0.083 2401 0.061 0.043 2401 0.048 0.034 2401 0.066 0.047 2401 0.293 0.210 0.208 0.148
 6.000 2401 0.110 0.078 2401 0.055 0.039 2401 0.101 0.072 2401 0.060 0.043 2401 0.327 0.211 0.231 0.149

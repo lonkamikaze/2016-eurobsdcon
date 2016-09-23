@@ -102,6 +102,67 @@
 \end{tikzpicture}
 \end{frame}
 
+\section{Where load stats come from}
+
+\begin{frame}{Where load stats come from}
+\end{frame}
+
+\section{Sampling vs. Filtering}
+
+\begin{frame}{Sampling vs. Filtering}
+\end{frame}
+
+\begin{frame}{load \emph{25 ms} sampling}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-powerd-adp.csv};
+\addplot+[load] table[x={time[s]},y=cpu.1.recload] {../data/yt-powerd-adp.csv};
+\addplot+[load] table[x={time[s]},y=cpu.2.recload] {../data/yt-powerd-adp.csv};
+\addplot+[load] table[x={time[s]},y=cpu.3.recload] {../data/yt-powerd-adp.csv};
+\legend{cpu.0,cpu.1,cpu.2,cpu.3}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{load \emph{25 ms} sampling}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-powerd-adp.csv};
+\legend{cpu.0}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\legend{cpu.0}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
+\legend{cpu.0 symmetric,cpu.0 past}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{load sampling vs. filtering comparison}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
+\addplot+[load] table[x={time[s]},y=cpu.0.recload] {../data/yt-10-0-10.csv};
+\legend{cpu.0 symmetric,cpu.0 past,$250 ms$ sample}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
 \begin{frame}{Definitions}
 \begin{itemize}
 \item Load: \begin{itemize}

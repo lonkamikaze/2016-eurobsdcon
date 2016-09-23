@@ -11,7 +11,17 @@
              BoldFont={* Semibold}]% The Bold face is too bold
 
 \usepackage{listings}              % Code blocks
-\lstset{basicstyle=\ttfamily\small}% Use a small monospace font
+\lstset{language={[ISO]C++},       % Default programming language
+        breaklines=true,           % Break long lines in listings
+        showstringspaces=false,    % Do not use visible spaces in strings
+        morekeywords={constexpr,   % C++11 keywords
+        decltype,static_assert},
+        commentstyle=\itshape\color{red!50!black},
+        emphstyle=\bfseries\color{red!50!black},
+        keywordstyle=\bfseries\color{green!50!black},
+        stringstyle=\color{blue!50!green!50!black},
+        basicstyle=\ttfamily\footnotesize, % Use a small monospace font
+        tabsize=4}                 % Not enough space for propper tabs
 
 \newcommand{\PDPP}{powerd$^{_{_{++}}}$}
 

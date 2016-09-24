@@ -313,6 +313,52 @@ read_usage_times(int *load)
 \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{Venus (ncpu=24) Xeon E5-2643 v3}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=4]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y={sum(recloads)}] {../data/venus-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y={max(recloads)}] {../data/venus-80-0-20.csv};
+\legend{powerd,powerd++}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Venus (ncpu=24) Xeon E5-2643 v3}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=1100,ymax=3500,ytick={3400,3200,3100,2900,2800,2600,2500,2300,2100,2000,1800,1700,1500,1400,1200}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/venus-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/venus-powerd-adp.csv};
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/venus-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/venus-powerd++-adp.csv};
+\legend{powerd hadp,powerd adp,powerd++ hadp,powerd++ adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Inge (ncpu=16) Xeon E5540}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=4]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y={sum(recloads)}] {../data/inge-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y={max(recloads)}] {../data/inge-80-0-20.csv};
+\legend{powerd,powerd++}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Inge (ncpu=16) Xeon E5540}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=1500,ymax=2600,ytick={2527,2394,2261,2128,1995,1862,1729,1596}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/inge-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/inge-powerd-adp.csv};
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/inge-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/inge-powerd++-adp.csv};
+\legend{powerd hadp,powerd adp,powerd++ hadp,powerd++ adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
 \section{Per Core Clock Frequencies}
 
 \begin{frame}{Per Core Clock Frequencies}

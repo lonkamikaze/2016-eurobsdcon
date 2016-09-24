@@ -40,6 +40,11 @@ NR > after + 1 {
 
 END {
 	for (li = NR - after + 1; li <= NR; ++li) {
+		# exit early if 0 lines of data are available, because all
+		# our samples are supposed to be from the future
+		if (!(before + NR - li)) {
+			break;
+		}
 		printf("%s", values[li, 1]);
 		for (i = 2; i <= n; ++i) {
 			if (values[li, i] ~ /[0-9]+\.[0-9]+/) {

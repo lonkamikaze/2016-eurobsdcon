@@ -267,217 +267,12 @@ read_usage_times(int *load)
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Definitions}
-\begin{itemize}
-\item Load: \begin{itemize}
-      \item<2-> The fraction of CPU cycles not spent idle
-      \end{itemize}
-\item<3-> P-State: \begin{itemize}
-      \item<4-> Performance State, also frequently called stepping
-      \item<5-> A CPU mode of operation with a specific clock frequency
-                and core voltage
-      \end{itemize}
-\end{itemize}
+\section{The Nail in the Coffin}
+
+\begin{frame}{The Nail in the Coffin}
 \end{frame}
 
-\begin{frame}{CPU p-state control}
-\centering
-\begin{tikzpicture}
-\input{../drawings/powerd++-demo-load}
-\onslide<2->{\input{../drawings/powerd++-demo-freq}}
-\end{tikzpicture}
-\end{frame}
-
-\section{Why?}
-
-\begin{frame}{Why control p-state?}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.4\textwidth}
-\begin{itemize}
-\item<1-> Fan noise
-\item<2-> Battery/Energy conservation
-\item<3-> Hardware lifetime
-\end{itemize}
-\end{column}
-\begin{column}{0.6\textwidth}
-\begin{tikzpicture}[scale=.6]
-\input{../drawings/powerd++-demo-load}
-\input{../drawings/powerd++-demo-freq}
-\end{tikzpicture}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Why replace powerd?}
-\centering
-\begin{tikzpicture}
-\input{../drawings/powerd-demo-load}
-\onslide<2->{\input{../drawings/powerd-demo-freq}}
-\end{tikzpicture}
-\end{frame}
-
-\begin{frame}{Why replace powerd?}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.4\textwidth}
-\begin{itemize}
-\item<1-> Broken load estimation
-\item<2-> Aggressive speeding
-\item<3-> Reluctant braking
-\item<4-> Excessive fan noise
-\end{itemize}
-\end{column}
-\begin{column}{0.6\textwidth}
-\begin{tikzpicture}[scale=.6]
-\input{../drawings/powerd-demo-load}
-\input{../drawings/powerd-demo-freq}
-\end{tikzpicture}
-\end{column}
-\end{columns}
-\end{frame}
-
-\section{Challenges!}
-
-\begin{frame}{Measuring loads}
-\centering
-\begin{tikzpicture}
-\input{../drawings/per-cpu-loads}
-\end{tikzpicture}
-\end{frame}
-
-\begin{frame}{Measuring loads}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.4\textwidth}
-\begin{itemize}
-\item<1-> Load is noisy
-\item<2-> Load shifts
-\item<3-> Load saturates
-\end{itemize}
-\end{column}
-\begin{column}{0.6\textwidth}
-\begin{tikzpicture}[scale=.6]
-\input{../drawings/per-cpu-loads}
-\end{tikzpicture}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Control algorithm}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.6\textwidth}
-\begin{itemize}
-\item Contradicting goals: \begin{itemize}
-      \item<2-> System should be responsive
-      \item<3-> System should be energy efficient
-      \end{itemize}
-\item<4-> P-States: \begin{itemize}
-      \item<5-> P-States lie
-      \item<6-> Extremely low nonsense p-states
-      \item<7-> P-State switching has a cost
-      \end{itemize}
-\end{itemize}
-\end{column}
-\begin{column}{0.4\textwidth}
-\begin{itemize}
-\item<8-> Conclusions: \begin{itemize}
-      \item<9-> Make the right compromises
-      \item<10-> Make it tunable
-      \item<11-> Set sane defaults
-      \end{itemize}
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-
-\section{How?}
-
-\begin{frame}{Summary}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.45\textwidth}
-\centering
-\PDPP
-\begin{itemize}
-\item<2-> Any granularity p-state changes
-\item<4-> Maximum load
-\item<6-> Aim for a load target
-\item<8-> Filter load to ignore short spikes
-\item<10-> Explicit CLA syntax like \lstinline{--max 1.2ghz}
-\end{itemize}
-\end{column}
-\begin{column}{0.1\textwidth}
-\centering
-versus
-\end{column}
-\begin{column}{0.45\textwidth}
-\centering
-powerd
-\begin{itemize}
-\item<3-> Global p-state changes only
-\item<5-> Sum of loads
-\item<7-> Hysteresis
-\item<9-> Aggressively tuned for responsiveness
-\item<11-> Hard coded units \lstinline{-M 1200}
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Control algorithm (powerd)}
-\centering
-\includegraphics[height=6.5cm]{arch_powerd}
-\end{frame}
-
-\begin{frame}{Control algorithm (\PDPP)}
-\centering
-\includegraphics[height=6.5cm]{arch_powerd++}
-\end{frame}
-
-\begin{frame}{Dealing with signal noise}
-\begin{tikzpicture}
-\onslide<1>{\input{../drawings/per-cpu-loads}}
-\onslide<2>{\input{../drawings/per-cpu-loads-powerd}}
-\onslide<3>{\input{../drawings/per-cpu-loads-powerd-unlimited}}
-\onslide<4>{\input{../drawings/per-cpu-loads-filtered}}
-\onslide<5>{\input{../drawings/per-cpu-loads-powerd++}}
-\end{tikzpicture}
-\end{frame}
-
-\section{Conclusions!}
-
-\begin{frame}{Solved problems}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-\item<1-> Load signal noise
-\item<3-> Low multi core loads
-\end{itemize}
-\end{column}
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-\item<2-> Lower sample rate, gliding average
-\item<4-> Without breaking single core loads
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Unsolved problems}
-\begin{columns}[onlytextwidth]
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-\item<1-> High frequency core hopping
-\item<3-> P-States that lie reduce accuracy
-\item<5-> \lstinline{kern_clock.c} only supports global frequency changes
-\end{itemize}
-\end{column}
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-\item<2-> This is rare
-\item<4-> Ignoring this works well enough
-\item<6-> This is fixable, but may break scheduling
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
+\section{fin}
 
 \begin{frame}
 \centering
@@ -485,6 +280,95 @@ powerd
 Praise the sun!\\
 \vspace{1cm}
 \url{https://github.com/lonkamikaze/powerdxx}
+\end{frame}
+
+\section{attachments}
+
+\begin{frame}{an artificial load}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/spikes-powerd-adp.csv};
+\legend{load}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/spikes-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/spikes-powerd-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd++}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/spikes-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/spikes-powerd++-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{rampup}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/rampup-powerd-adp.csv};
+\legend{load}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampup-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampup-powerd-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd++}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampup-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampup-powerd++-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{rampdown}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/rampdown-powerd-adp.csv};
+\legend{load}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampdown-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampdown-powerd-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{powerd++}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=500,ymax=2000,ytick={500,600,...,2000}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampdown-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/rampdown-powerd++-adp.csv};
+\legend{hadp,adp}
+\end{axis}
+\end{tikzpicture}
 \end{frame}
 
 \end{document}

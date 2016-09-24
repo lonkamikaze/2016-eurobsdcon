@@ -279,6 +279,47 @@ read_usage_times(int *load)
 \begin{frame}{The Nail in the Coffin}
 \end{frame}
 
+\begin{frame}{2 cores + HT}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=2.5]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y={sum(recloads)}] {../data/browser-email-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y={max(recloads)}] {../data/browser-email-80-0-20.csv};
+\legend{powerd,powerd++}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{4 cores + HT}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=2.5]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y={sum(recloads)}] {../data/4core-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y={max(recloads)}] {../data/4core-80-0-20.csv};
+\legend{powerd,powerd++}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{4 cores + HT}
+\begin{tikzpicture}
+\begin{axis}[axis freq]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/4core-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/4core-powerd-adp.csv};
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/4core-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/4core-powerd++-adp.csv};
+\legend{powerd hadp,powerd adp,powerd++ hadp,powerd++ adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\section{Per Core Clock Frequencies}
+
+\begin{frame}{Per Core Clock Frequencies}
+\centering
+demo
+\end{frame}
+
 \section{fin}
 
 \begin{frame}

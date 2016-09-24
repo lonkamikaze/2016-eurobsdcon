@@ -146,7 +146,7 @@
 \begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
 \begin{tikzpicture}
 \begin{axis}[axis load]
-\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
 \legend{cpu.0}
 \end{axis}
 \end{tikzpicture}
@@ -156,8 +156,19 @@
 \begin{tikzpicture}
 \begin{axis}[axis load]
 \addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
-\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
-\legend{cpu.0 symmetric,cpu.0 past}
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-0-80-1.csv};
+\legend{cpu.0 symmetric,cpu.0 future}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{load \emph{25 ms} sampling, \emph{2 s} filter}
+\begin{tikzpicture}
+\begin{axis}[axis load]
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-40-40-1.csv};
+\addplot+[load,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-0-80-1.csv};
+\addplot+[load,thick,no markers] table[x={time[s]},y=cpu.0.recload] {../data/yt-80-0-1.csv};
+\legend{cpu.0 symmetric,cpu.0 future, cpu.0 past}
 \end{axis}
 \end{tikzpicture}
 \end{frame}

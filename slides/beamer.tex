@@ -401,6 +401,37 @@ Praise the sun!\\
 \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{MCS3 (ncpu=40) Xeon E5-2680}
+\begin{tikzpicture}
+\begin{axis}[axis load,ymax=4]
+\draw (axis cs:0,1) -- (axis cs:30,1) {};
+\addplot+[load] table[x={time[s]},y={sum(recloads)}] {../data/mcs3-10-0-10.csv};
+\addplot+[load] table[x={time[s]},y={max(recloads)}] {../data/mcs3-80-0-20.csv};
+\legend{powerd,powerd++}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{MCS3 (ncpu=40) Xeon E5-2680, powerd}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=1100,ymax=2900,ytick={2800,2700,2600,2500,2300,2200,2100,2000,1900,1800,1700,1500,1400,1300,1200}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/mcs3-powerd-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/mcs3-powerd-adp.csv};
+\legend{powerd hadp,powerd adp,powerd++ hadp,powerd++ adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{MCS3 (ncpu=40) Xeon E5-2680, powerd++}
+\begin{tikzpicture}
+\begin{axis}[axis freq,ymin=1100,ymax=2900,ytick={2800,2700,2600,2500,2300,2200,2100,2000,1900,1800,1700,1500,1400,1300,1200}]
+\addplot+[freq,thick] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/mcs3-powerd++-hadp.csv};
+\addplot+[freq] table[x={time[s]},y={cpu.0.freq[MHz]}] {../data/mcs3-powerd++-adp.csv};
+\legend{powerd hadp,powerd adp,powerd++ hadp,powerd++ adp}
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
 \begin{frame}{an artificial load}
 \begin{tikzpicture}
 \begin{axis}[axis load]

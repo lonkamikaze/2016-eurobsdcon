@@ -1,7 +1,7 @@
 TITLE=		2016 EuroBSDcon Replacing powerd
 CLEANUP=	.aux .auxlock .log .nav .out .snm .toc .pdf -figure[0-9]*
 NAME=		beamer
-MEDIA=		logo arch_powerd arch_powerd++ freebsd-logo
+MEDIA=		logo
 DRAWINGS=	../drawings/*.tex
 IMAGES=		../images/*
 DATA=		../data/*
